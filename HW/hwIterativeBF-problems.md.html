@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script>
+</head>
+<body>
+For the written problem , provide pseudocode. Do not try to implement the minute details - see examples above, especially the convex hull. Use
+
+   - for all subsets
+   - for all points
+   - for all pairs of points
+   - for all triples of points
+   - sum the weights of items in the subset
+   - check if square is magic
+
+etc. to indicate the main logic of the algorithm, without worrying about the implementation details. What is important - make sure to follow the logic of constraint satisfaction/feasibility problems or optimization problems as described in the introduction. Expected length of the pseudocode is about 4-6 lines. 
+
+--------------
+
+1. Solve the 0-1 knapsack problem using an iterative brute-force algorithm. Given a set of items, each with a weight and a (monetary) value, and the maximum weight capacity of a knapsack, determine the maximum value of items that that can be put in the knapsack. A more criminal way of putting it: a thief is trying to maximize the value of items they can steal without exceeding the weight they can carry. Items cannot be split, they are either taken or not taken.  Provide pseudocode for your solution and its time complexity.
+
+--------------
+
+2. The most isolated point: given a set of points on a plane, find a point that is the furthest from its closest neighbor.
+
+--------------
+3. The magic square problem: given an integer n, construct an n x n matrix filled with distinct integers from 1 to $nˆ2$ such that the sum of the integers in each row, each column, and both main diagonals are the same. Examples of magic squares:
+```
+         n=3, sum = 15:
+         8 1 6
+         3 5 7
+         4 9 2
+```
+and
+```
+         n=4, sum = 34:
+         16 2  3  13
+         5  11 10 8
+         9  7  6  12
+         4  14 15 1
+```
+
+--------------
+4. Execute first 13 steps of the Steinhaus-Johnson-Trotter algorithm for n=4. Show the permutation and the direction of movement for each element at each step. Suggested format:
+```
+1.
+< < < < 
+1 2 3 4  4 is largest mobile
+
+2.
+< < < <
+1 2 4 3  4 is largest mobile
+3. 
+...
+```
+</body>
+</html>
