@@ -1,86 +1,77 @@
+// Author: Andrew Knopf
+// CS330 - Algorithm Analysis Summer 2026
+// Lab 1 - Lexicographical Permutation
+// DigiPen Insitute of Technology (C) 2026
 #include "perm-lexicographical.h"
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
-
-// NOTES
-// find smallest suffix that is NOT in decreasing order(it will be like 2641, a number, then larger number, then decreasing numbers)
-// change the first digit of the suffix to the smallest digit in the suffix that is larger than it(in the example 2641, leading 2 will be changed to 4)
-// sort the rest of the numbers in increasing order(i.e.make the smallest possible number with the remaining digits, in the example 261 will be changed to 126), resulting in the next larger number 4126
-// if there is no such suffix, then we are at the largest possible number and there is no next larger number(in the example 654321 has no such suffix, since it is in decreasing order)
-
-// Helper functions
-static int findSmallestIncreasing(std::vector<int>& p);
+// Forward declarations
+static int findSmallestNonDecreasingSuffix(std::vector<int>& p);
 static int findSmallestIncreaseIndex(std::vector<int>& p, const int suffixFront);
 
-bool nextPermLexicographical(std::vector<int>& p)
+bool nextPermLexicographical(std::vector<int>& p) 
 {
-  // find smallest suffix that is NOT in decreasing order (it will be like 2641, a number, then larger number, then decreasing numbers)
-  int suffixFront = findSmallestIncreasing(p);
+  // Find the smallest non-decreasing suffix
+  int suffixFront = findSmallestNonDecreasingSuffix(p);
+  
+  // If no such index exists, we are at the last permutation
+  if (suffixFront == -1) 
+    return false; 
 
-  // if there is no such suffix, then we are at the largest possible number and there is no next larger number (in the example 654321 has no such suffix, since it is in decreasing order)
-  if (suffixFront == -1)
-    return false;
-
-  // Value of the beginning of the suffix
-  // int val = p[suffixFront];
-
-  // Find smallest value that's larger than the first digit
+  // Find the smallest larger number than the suffix front
   int smallestIncreaseIndex = findSmallestIncreaseIndex(p, suffixFront);
-  if (smallestIncreaseIndex == -1)
+  if (smallestIncreaseIndex == -1) 
     return false;
 
-  // Swap smallest larger value with the front
+  // Swap suffix front with smallest larger number
   std::swap(p[suffixFront], p[smallestIncreaseIndex]);
 
-  // Sort the rest of the array
-  int back = p.size() - 1;
-  std::sort(&p[suffixFront + 1], &p[back]);
+  // If suffix was decreasing, you can just reverse them to sort in increasing order
+  std::reverse(p.begin() + suffixFront + 1, p.end()); 
 
-  // NOTE: I don't know what im supposed to be returning here?
-  return true;
+  // Successfully generated the next permutation
+  return true; 
 }
 
-// Returns the index of the value that's the smallest larger number than the value indexed at 'suffixFront'
-int findSmallestIncreaseIndex(std::vector<int>& p, const int suffixFront)
+// Returns the index of the smallest number in the suffix sub-array that's larger than the front of the suffix
+static int findSmallestIncreaseIndex(std::vector<int>& p, const int suffixFrontIndex) 
 {
-  // Track the smallest increase in the array and where it is
+  // NOTE:
+  //  I know this is not a professional way to do this but what do you want?
+  //  I'd rather have INFINITY, but that compiled to 0 for some reason.
   int smallestIncrease = 100000;
   int smallestIncreaseIndex = -1;
 
-  // Loop the suffix from back to front
+  // Loop from the back of the suffix to the front
   int back = p.size() - 1;
-  for (int i = back; i > suffixFront; --i)
+  for (int i = back; i > suffixFrontIndex; --i) 
   {
-    // If the value is smaller than the smallest found value
-    if (p[i] < smallestIncrease && p[i] > p[suffixFront])
-    {
-      smallestIncreaseIndex = i;
-      smallestIncrease = p[smallestIncreaseIndex];
-    }
+    // Look for the smallest number that's also larger than the suffix front
+    if (!(p[i] < smallestIncrease && p[i] > p[suffixFrontIndex]))
+      continue;
+
+    // Update the value and index
+    smallestIncreaseIndex = i;
+    smallestIncrease = p[smallestIncreaseIndex];
   }
 
   return smallestIncreaseIndex;
 }
 
-// Returns the leftmost index of the smallest non-decreasing suffix in the given vector,
-int findSmallestIncreasing(std::vector<int>& p)
+// Returns the front index of the smallest increasing suffix
+static int findSmallestNonDecreasingSuffix(std::vector<int>& p) 
 {
-  int back = p.size(); // Back index of the vector
-
-  // Loop backwards through the vector
-  for (int index = back; index > 0; --index)
+  // Loop the vector from back to front
+  int back = p.size() - 1;
+  for (int i = back; i > 0; --i) 
   {
-    // Splitting up for readability + debugging
-    int thisDigit = p[index];
-    int nextDigit = p[index - 1];
-
-    // Check for the first occurrence of a decrease in value starting from p.end() to p.begin()
-    if (nextDigit < thisDigit)
-      return index - 1;
+    // If the value in front of the current index is decreasing
+    if (p[i - 1] < p[i])
+      return i - 1;   
   }
 
-  return -1; // Code for failure case
+  // Return a failure code
+  return -1;
 }
-
-
