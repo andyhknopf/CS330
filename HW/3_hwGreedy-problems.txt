@@ -1,0 +1,28 @@
+Notice that for this set of problems your solution is not required
+to be optimal, but it should be a greedy solution. This is why we will
+refer to solutions as "procedures" rather than "algorithms".
+
+Problem 1.
+=========
+Design a greedy procedure for the following problem -- interval coloring: you
+have a list of classes that specifies class start and end time [s_i,e_i].  You
+have to assign rooms to classes -- your goal is to minimize the total number of
+rooms used. Obviously you cannot skip a class and if two classes overlap they
+cannot be in the same room. The problem can be stated as color given intervals
+in fewest number of colors, so that no two intervals with the same color
+overlap.
+
+Problem 2.
+=========
+Design greedy procedure for the following problem: you have a collection of points
+on a real line (i.e. non-integer coordinates are allowed). Find a smallest set of
+intervals of length 1 that cover all points. In other words - point are people, 
+intervals are umbrellas, protect all people from the rain with fewest umbrellas.
+Notice I am asking for a procedure, not an algorithm. So it does not have to be
+optimal all the times. 
+
+Problem 3:
+=========
+A famous 4-color theorem states that any map can be colored with at most 4
+colors, so that no two adjacent regions have the same color. Design a greedy
+procedure for coloring maps.

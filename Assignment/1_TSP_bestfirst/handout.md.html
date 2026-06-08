@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script>
+</head>
+<body>
+
+**TSP using best first**
+
+Implement TSP problem using best first algorithm (so it will be backtracking,
+branch-and-bound, and best-first). 
+It is recommended to implement in steps (so you are dealing with one subproblem at a time):
+  - first implement backtracking (will solve 5-6 cities, but will take seconds for bigger sizes)
+  - add bound (see below) and add pruning logic
+  - restructure code to use best first
+
+Notes: 
+  - since you are looking for a cycle, the start/finish city is not important.  Therefore we assume that start and  finish city is always index 0.
+  - thus - solution is a permutation of the remaining cities (1,2,...,n-1) with 0 at the beginning and end.
+  - use recursive permutation generation from notes (see assignment problem)
+
+
+The **bound**. As discussed in class, solution of the relaxed problem (where we ignore some of the constraints of the original problem) is a lower bound on the solution of the original problem. 
+
+Let's assume we are in the middle of the search and we have a partial path (0->1->2->3) and remaining cities are 4,5,6. 
+**Original problem**:
+    1. find 4 directed edges
+    2. each of the remaining cities 4,5,6 has an incoming edge FROM one of the cities 3,4,5,6 (current city 3 is included because it is the last city in the current path and it can be connected to one of the remaining cities)
+    3. city 0 has an incoming edge FROM one of the cities 4,5,6 (current city 3 is **excluded** because 3->0 will conclude the cycle and cities 4,5,6 will not be visited)
+    4. each of the remaining cities 4,5,6 has an outgoing edge TO one of the cities 0,4,5,6 (city 0 is included)
+    5. city 3 has an outgoing edge TO one of the cities 4,5,6 (last city 0 is excluded because 3->0 will conclude the cycle and cities 4,5,6 will not be visited)
+    6. minimize the total cost of the 4 edges.
+
+Notice how constraints 2-5) enforce that the remaining 4 edges have to complete a cycle, and that is what makes makes TSP hard.
+
+**Relaxed problem**: drop constraints 4) and 5):
+    1. find 4 directed edges
+    2. each of the remaining cities 4,5,6 has an incoming edge FROM one of the cities 3,4,5,6 (current city 3 is included because it is the last city in the current path and it can be connected to one of the remaining cities)
+    3. city 0 has an incoming edge FROM one of the cities 4,5,6 (current city 3 is **excluded** because 3->0 will conclude the cycle and cities 4,5,6 will not be visited)
+    4. -
+    5. -
+    6. minimize the total cost of the 4 edges.
+
+Notice that the relaxed problem is trivial to solve:
+    - find the shortest path to 4 from 3,5,6 (minimum of 3 edges)
+    - find the shortest path to 5 from 3,4,6 (minimum of 3 edges)
+    - find the shortest path to 6 from 3,4,5 (minimum of 3 edges)
+    - find the shortest path to 0 from 4,5,6 (minimum of 3 edges)
+    - add these 4 minimums together to get the solution of the relaxed problem.
+
+Pictures:
+
+Here is a diagram of the partial path from above, in black is the current path, and in red is the future  (unknown) path that completes the cycle:
+
+![](pic1.svg)
+
+The relaxed problem drops the "cycle" constraint and simply asks for shortest edge TO 4,5,6,0 from reasonable candidates (3,4,5,6 for 4,5,6 and 4,5,6 for 0). Find minimum among blue (to city 6) plus minimum among green (to city 5) plus minimum among yellow (to city 4) plus minimum among grey (to city 0):
+
+![](pic2.svg)
+
+Notice that the solution of the relaxed problem may look like 
+
+![](pic3.svg)
+
+Not a valid solution to the original problem, since it allows more candidates for the set of the remaining edges, but it is a lower bound on the solution of the original problem.
+
+Driver calls a function
+```cpp
+std::vector<int> SolveTSP( char const* filename );
+```
+which returns a vector of indices in order they are visited. 
+The first and last values are always 0 (start=0, ...., finish=0). 
+Example:
+0 4 2 1 3 0
+
+Input file (map) format:
+  - file contains 1 + n(n-1)/2 integer values.
+  - first is the number of cities, then n(n-1)/2 distances in the following order:
+  - 
+```
+5
+d(0,1) d(0,2) d(0,3) d(0,4)
+       d(1,2) d(1,3) d(1,4)
+              d(2,3) d(2,4)
+                     d(3,4)
+```
+you may reuse file parsing code from the driver.
+
+Spacing is not part of the formatting, so file is legal even if all 1 + n(n-1)/2 number are in one line.
+
+To submit:
+  - tsp.cpp
+
+<!-- -->
+</body>
+</html>
+
