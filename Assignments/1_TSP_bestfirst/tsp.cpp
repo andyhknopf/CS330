@@ -14,6 +14,7 @@ void read(char const* filename, MAP& map, int& TotalCity);
 
 // State node for Best-First exploration search tree
 struct Node {
+  Node() : current_cost(0), lower_bound(0) {}
   std::vector<int> path;
   std::vector<bool> visited;
   int current_cost;
