@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="driver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tsp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="handout.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+    <None Include="Makefile2" />
+    <None Include="map0" />
+    <None Include="map1" />
+    <None Include="map2" />
+    <None Include="map3" />
+    <None Include="map4" />
+    <None Include="map5" />
+    <None Include="map6" />
+    <None Include="map7" />
+    <None Include="map8" />
+    <None Include="map9" />
+    <None Include="map10" />
+    <None Include="map11" />
+    <None Include="out0" />
+    <None Include="out1" />
+    <None Include="out2" />
+    <None Include="out3" />
+    <None Include="out4" />
+    <None Include="out5" />
+    <None Include="out6" />
+    <None Include="out7" />
+    <None Include="out8" />
+    <None Include="out9" />
+    <None Include="out10" />
+    <None Include="out11" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tsp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
