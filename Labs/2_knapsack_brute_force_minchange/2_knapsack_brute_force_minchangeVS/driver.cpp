@@ -37,28 +37,42 @@ void test_grey_code( int s )
     std::vector<bool> bag( s, false ); // empty - all positions are false
     GreyCode gc( s );
     bool go = true;
+
+
     // print initial state
     // print vector from the end - same direction as binary representation
     for ( int i=bag.size()-1; i >= 0; --i) {
         std::cout << bag[ i ];
     }
     std::cout << std::endl;
+
     // the rest 
-    while ( go ) {
+    while ( go ) 
+    {
         std::pair< bool, std::pair< bool, int > > r = gc.Next();
         go = r.first;
         bool add = r.second.first;
         int  pos = r.second.second;
-        if ( add ) {
-            bag[ pos ] = true;
-            std::cout << "change to 1 at position " << pos << std::endl;
-        } else {
-            bag[ pos ] = false;
-            std::cout << "change to 0 at position " << pos << std::endl;
+
+
+        if ( add ) 
+        {
+          bag[ pos ] = true;
+          std::cout << "change to 1 at position " << pos << std::endl;
+        } 
+        else 
+        {
+          bag[ pos ] = false;
+          std::cout << "change to 0 at position " << pos << std::endl;
         }
-    for ( int i=bag.size()-1; i >= 0; --i) {
-            std::cout << bag[ i ];
+
+
+        for ( int i=bag.size()-1; i >= 0; --i) 
+        {
+          std::cout << bag[ i ];
         }
+
+
         std::cout << std::endl;
     }
 }

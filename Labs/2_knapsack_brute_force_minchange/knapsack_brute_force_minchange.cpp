@@ -54,7 +54,7 @@ std::pair< bool, std::pair< bool, int > > GreyCode::Next()
   }
   #else
   {
-    pos = __builtin_ctz(lowest_set_bit);
+    pos = ffs(lowest_set_bit) - 1;
   }
   #endif
 
