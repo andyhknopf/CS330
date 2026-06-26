@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="driver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="e-dijkstra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="random.graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="e-dijkstra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="handout.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="in0" />
+    <None Include="in1" />
+    <None Include="in1.dot.pdf" />
+    <None Include="in2" />
+    <None Include="in3" />
+    <None Include="in4" />
+    <None Include="in5" />
+    <None Include="Makefile" />
+    <None Include="Makefile2" />
+    <None Include="out0" />
+    <None Include="out1" />
+    <None Include="out2" />
+    <None Include="out3" />
+    <None Include="out4" />
+    <None Include="out5" />
+    <None Include="out6" />
+    <None Include="out7" />
+    <None Include="out8" />
+    <None Include="out9" />
+    <None Include="out10" />
+    <None Include="out11" />
+    <None Include="out12" />
+    <None Include="out13" />
+    <None Include="out14" />
+    <None Include="out15" />
+    <None Include="out16" />
+    <None Include="out17" />
+    <None Include="out18" />
+    <None Include="out19" />
+    <None Include="out20" />
+    <None Include="out21" />
+    <None Include="out22" />
+    <None Include="out23" />
+    <None Include="out24" />
+    <None Include="out25" />
+    <None Include="out26" />
+    <None Include="out27" />
+    <None Include="out28" />
+    <None Include="out29" />
+  </ItemGroup>
+</Project>
