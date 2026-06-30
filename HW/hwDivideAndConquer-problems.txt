@@ -1,0 +1,22 @@
+Problem 1:
+    Design an algorithm to rearrange elements of a given array of n real
+    numbers so that all its negative elements precede all its positive
+    elements. Your algorithm should be both time- and space-efficient.
+
+Problem 2:
+    Nuts and Bolts.
+    You are given a collection if n bolts of different width and n
+    corresponding nuts. You are allowed to try a nut and a bolt together, from
+    which you can determine whether the nut is larger than the bolt, smaller
+    than the bolt, or matches the bolt exactly.  However, there is no way to
+    compare two bolts together, or two nuts together. The problem is to match
+    each bolt to its nut.  Design an algorithm for this problem with
+    average-case efficiency in Theta( n log n ).
+
+Problem 3:
+    We are given an array A with n elements and a number C. Assume that the sum of
+    the elements in A is larger than C. We would like to compute the size of the
+    smallest subset of A whose elements sum to at least C. (For example, if A = [8,
+    3, 9, 2, 7, 1, 5] and C = 18 then the answer is 3; the set is {7, 8, 9}.) Give a
+    linear-time (average) algorithm for this problem. 
+    (HINT: use the linear-time Partition algorithm)

@@ -60,9 +60,16 @@ bool (*pTests[])( ) = {
 #include <cstdio> // sscanf
 int main(int argc, char ** argv) 
 {
+  answer["in0"] = 300;
+  answer["in1"] = 688;
+  answer["in2"] = 6;
+  answer["in3"] = 53;
+  answer["in4"] = 177;
+  answer["in5"] = 2843;
+
   // test0();
   // test1();
-  // test2();
+  test2();
   // test3();
   // test4();
   // 
@@ -90,7 +97,7 @@ int main(int argc, char ** argv)
   // test23();
   // test24();
         
-  test25();
+  // test25();
   // test26();
   // test27();
   // test28();

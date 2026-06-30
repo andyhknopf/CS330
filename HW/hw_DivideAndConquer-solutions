@@ -1,0 +1,66 @@
+// Problem #1
+bool negativeToPositive(arr [])
+{
+  // For array of size n 
+  arr[] = new arr(n);
+
+  // Take two iterators i = 0, j = n - 1
+  i = 0, j = (n - 1)
+
+  // Loop through the array
+  while (i < j)
+  {
+    // Increase i if element i is negative and less than j
+    if (i < 0)
+      ++i
+
+    // Decrease j if element j is positive and greater than i
+    if (j >= 0)
+      --j
+
+    // Swap the numbers if element j is smaller than element i
+    // Increment first then check after to keep
+    arr.swap(i, j)
+  }
+  
+  // Array is sorted
+  return true
+}
+
+// Problem #2
+bool nutsAndBolts(nuts[], bolts[])
+{
+  // nuts.size() = n
+  // bolts.size() = n
+
+  // For each nut
+  for ( i = 0; i < nuts.size(); ++i)
+  {
+    // Sort array into values higher, lower, and equal bolt sizes
+    for (j = 0; j < bolts.size(); ++j)
+    {
+      // If looping bolt is smaller than "pivot" indexed bolt
+      if (bolts[j] < bolts[i])
+      {
+        // Swap the bolts and increment the pivot
+        bolts.swap()
+        ++i
+      }
+      else if (bolts[j] == bolts[i])
+      {
+        // Move the equal bolt to the end of the array and increment looping bolt
+        bolts.swap(j, bolts.size())
+        ++j
+      }
+      // Else bolt is larger, already sorted
+    }
+
+    // Swap the pivot bolt to the end
+    bolts.swap(i, bolts.size())
+  }
+
+  nutsAndBolts(nuts, bolts, )
+
+}
+
+// Problem #3
